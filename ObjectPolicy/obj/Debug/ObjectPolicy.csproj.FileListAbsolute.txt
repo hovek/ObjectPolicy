@@ -1,0 +1,5 @@
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicy\bin\Debug\ObjectPolicy.dll
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicy\bin\Debug\ObjectPolicy.pdb
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicy\obj\Debug\ObjectPolicy.csprojResolveAssemblyReference.cache
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicy\obj\Debug\ObjectPolicy.dll
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicy\obj\Debug\ObjectPolicy.pdb

@@ -1,0 +1,71 @@
+﻿<!--Objects>
+  <Object Name="page" Type="ObjectPolicyTester.Tester">
+    <IdentityCondition>Title="ObjectPolicyTester"</IdentityCondition>
+    <PathSettings Dynamic="false">
+      <Setting Path="Title" Dynamic="true" />
+      <Setting Path="textBox1.Text" AllowBinding="true"/>
+      <Setting Path="Button1.IsMouseOver" AllowBinding="true" />
+    </PathSettings>
+    <If>
+      <Condition>
+        textBox1.Text = "Hrvoje"
+      </Condition>
+      <Setters AllowUndo="true">
+        <Setter Path="checkBox1.IsChecked">Title="ObjectPolicyTester"</Setter>
+        <Setter Path="Button1.Visibility">$.GetVisibility(false)</Setter>
+        <Setter Path="textBox2.Style">
+          <Setter.Value>
+            <Style xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              TargetType="{x:Type TextBox}">
+              <Setter Property="Template">
+                <Setter.Value>
+                  <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Border Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                      <TextBlock Foreground="{TemplateBinding Foreground}"
+                        VerticalAlignment="Center" HorizontalAlignment="Center" Text="{Binding
+										Path=Time}" />
+                    </Border>
+                  </ControlTemplate>
+                </Setter.Value>
+              </Setter>
+            </Style>
+          </Setter.Value>
+        </Setter>
+      </Setters>
+      <Setter Path="textBox2.Text">"Checked"</Setter>
+      <Objects>
+        <Object Name="border1" Type="System.Windows.Controls.Border">
+          <IdentityCondition>Name="border1"</IdentityCondition>
+          <PathSettings Dynamic="false">
+            <Setting Path="@page.textBox1.Text" AllowBinding="true"/>
+          </PathSettings>
+          <If>
+            <Setters>
+              <Setter Path="BorderThickness">$.GetBorderThickness(5)</Setter>
+              <Setter Path="@page.textBox3.Text">@page.textBox1.Text</Setter>
+            </Setters>
+          </If>
+        </Object>
+      </Objects>
+    </If>
+    <If Else="true">
+      <Setters AllowUndo="true">
+        <Setter Path="textBox2.Text">"Unchecked"</Setter>
+      </Setters>
+    </If>
+    <If>
+      <Condition>
+        Button1.IsMouseOver
+      </Condition>
+      <Setters>
+        <Setter AllowUndo="true" Path="textBox1.Text">"Mouse is over waegwaegwae"</Setter>
+        <Setter AllowUndo="true" Path="textBox1.Width">200</Setter>
+      </Setters>
+    </If>
+  </Object>
+</Objects-->
+
+<Objectas/>

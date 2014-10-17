@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TestModelStoreContainer" CdmEntityContainer="TestEntities">
+    <EntitySetMapping Name="ObjectPolicyEntity">
+      <EntityTypeMapping TypeName="TestModel.ObjectPolicyEntity">
+        <MappingFragment StoreEntitySet="ObjectPolicy">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Objects" ColumnName="Objects" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetObjectPolicy" FunctionName="TestModel.Store.GetObjectPolicy" />
+  </EntityContainerMapping>
+</Mapping>

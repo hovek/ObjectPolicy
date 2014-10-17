@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="objectPolicySchema" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="objects" type="objectsType"/>
+
+	<xs:element name="object" type="objectType"/>
+
+	<xs:attribute name="dynamic" type="xs:boolean"/>
+	<xs:attribute name="allowBinding" type="xs:boolean"/>
+	<xs:attribute name="path" type="xs:string"/>
+	<xs:attribute name="allowUndo" type="xs:boolean"/>
+
+	<xs:complexType name="objectsType">
+		<xs:sequence>
+			<xs:element name="object" type="objectType" minOccurs="1" maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="objectType">
+		<xs:sequence>
+			<xs:element name="identityCondition" type="xs:string"  minOccurs="0" maxOccurs="1"/>
+			<xs:choice>
+				<xs:element name="settings"  minOccurs="0" maxOccurs="1">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="setting" type="settingType" minOccurs="0" maxOccurs="unbounded"/>
+						</xs:sequence>
+						<xs:attribute ref="dynamic" use="optional"/>
+						<xs:attribute ref="allowBinding" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="setting" type="settingType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:choice>
+				<xs:element name="setters" type="settersType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="setter" type="setterType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:choice>
+				<xs:element name="objects" type="objectsType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="object" type="objectType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:element name="if" type="ifType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" use="optional" type="xs:string"/>
+		<xs:attribute name="type" use="optional" type="xs:string"/>
+	</xs:complexType>
+
+	<xs:complexType name="settingType">
+		<xs:attribute ref="path" use="optional"/>
+		<xs:attribute name="pathFrom" use="optional" type="xs:string"/>
+		<xs:attribute name="pathTo" use="optional" type="xs:string"/>
+		<xs:attribute ref="dynamic" use="optional"/>
+		<xs:attribute ref="allowBinding" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType  name="ifType">
+		<xs:sequence>
+			<xs:element name="condition" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:choice>
+				<xs:element name="setters" type="settersType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="setter" type="setterType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:choice>
+				<xs:element name="objects" type="objectsType" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="object" type="objectType" minOccurs="0" maxOccurs="unbounded"/>
+			</xs:choice>
+			<xs:element name="if" type="ifType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="else" type="xs:boolean" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="settersType">
+		<xs:sequence>
+			<xs:element name="setter" type="setterType" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute ref="allowUndo" use="optional"/>
+	</xs:complexType>
+
+	<xs:complexType name="setterType" mixed="true">
+		<xs:sequence>
+			<xs:element name="path" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			<xs:choice>
+				<xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="1"/>
+				<xs:element name="valueXAML" type="xs:string" minOccurs="0" maxOccurs="1"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute ref="path" use="optional"/>
+		<xs:attribute ref="allowUndo" use="optional"/>
+	</xs:complexType>
+</xs:schema>

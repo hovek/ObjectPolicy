@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<object type="ObjectPolicyTesterWindowsForms.Form1">
+	<!--If you set allowBinding="true" for a path, he will try to bind to that path and every change of value that path returns will initiate a new check of all if/setter in that object which condition is true,
+	<if> tags which don't have a condition and setters which are not in if tag will always be executed-->
+	<setting path="Event" allowBinding="true"/>
+	<!--when you set dynamic for a path e.g. "Event.GetValue().Name", every time when you request Name value he will first get the object that GetValue() method returns i order to get the Name property from that object.
+	If you set dynamic to false, after first time when he requests value from GetValue() it will be remembered and every time after that he will return Name property value from the same object-->
+	<!--Why do we need to set dynamic="true" on "Event.GetValue().Name" and "$.MessageBoxShow()"?
+	Because after first time of calling "$.MessageBoxShow(Event.GetValue("button_Click").Name+ " clicked!")" he remembered the object ("button1 clicked!") passed as a parameter into MessageBoxShow.
+	Simpler solution would be to put all setter tags into <setters dynamic="true"></setters>"
+	Paths are by default set to dynamic="false" because it's faster.-->
+	<setting path="Event.GetValue().Name" dynamic="true"/>
+	<setting path="$.MessageBoxShow()" dynamic="true"/>
+	<object type="control">
+		<identityCondition>Name = "groupBox1"</identityCondition>
+		<object type="control">
+			<identityCondition>Name != "groupBox1" and Name != "groupBox2" and Name != "groupBox4" and Name != "groupBox5" and Parent.Name != "groupBox5"</identityCondition>
+			<setter path="Visible">false</setter>
+		</object>
+	</object>
+	<if>
+		<condition>$.Settings.ContainsKey("HelloWorld")=false</condition>
+		<setter>$.SetSetting("HelloWorld",null)</setter>
+		<setter path="textBox1.Text">"Hello world!"</setter>
+	</if>
+	<if>
+		<condition>Event.ContainsKey("textBox1_KeyPress_Enter")</condition>
+		<setter>$.MessageBoxShow(textBox1.Text)</setter>
+	</if>
+	<if else="true">
+		<condition>Event.ContainsKey("button_Click")</condition>
+		<setter>$.MessageBoxShow(Event.GetValue("button_Click").Name+ " clicked!")</setter>
+	</if>
+</object>

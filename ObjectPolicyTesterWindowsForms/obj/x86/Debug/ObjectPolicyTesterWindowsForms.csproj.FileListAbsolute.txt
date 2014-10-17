@@ -1,0 +1,12 @@
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\bin\Debug\ObjectPolicyTesterWindowsForms.exe.config
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\bin\Debug\ObjectPolicyTesterWindowsForms.exe
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\bin\Debug\ObjectPolicyTesterWindowsForms.pdb
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\bin\Debug\ObjectPolicy.dll
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\bin\Debug\ObjectPolicy.pdb
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.csprojResolveAssemblyReference.cache
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.Form1.resources
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.FrmMask.resources
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.Properties.Resources.resources
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.csproj.GenerateResource.Cache
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.exe
+D:\Programiranje\ObjectPolicy\Main\ObjectPolicyTesterWindowsForms\obj\x86\Debug\ObjectPolicyTesterWindowsForms.pdb
